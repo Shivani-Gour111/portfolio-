@@ -1,20 +1,24 @@
 
 import React from "react";
+
+import { useState } from "react";
 function App() {
+
+  const [submitted, setSubmitted] = useState(false);
   const projects = [
   {
     id: 1,
     name: "Be Bold Beauty Store",
     description: "An elegant frontend for a beauty store with categories and shop features.",
-    image: "/Beauty.jpg", // ✅ CORRECT path
-    link: "http://127.0.0.1:5501/project.html",
+    image: "/Beauty.jpg", 
+    link: "http://beauty-collection-snjp-ki1wpv5y2-shivani-gour.vercel.app", 
   },
   {
     id: 2,
     name: "Food Delivery App",
     description: "A React-based food delivery UI with categories and cart system.",
-    image: "/Food.jpg", // ✅ CORRECT path
-    link: "http://localhost:5173/#home",
+    image: "/Food.jpg", 
+    link: "https://food-website-by-react-t1at-gn2k10f8k-shivani-gour.vercel.app", 
   },
 ];
 
@@ -146,22 +150,22 @@ function App() {
         key={project.id}
         className="bg-white rounded-2xl shadow-xl p-8 hover:scale-105 transform transition-all duration-300"
       >
-        {/* 👇 IMAGE added here */}
         <img
           src={project.image}
           alt={project.name}
           className="w-full h-70 object-cover rounded-lg mb-6"
         />
-
         <h3 className="text-2xl font-bold mb-2">{project.name}</h3>
         <p className="text-gray-700 mb-4 text-xl">{project.description}</p>
+
+        {/* Live Project Button */}
         <a
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-yellow-500 underline hover:text-yellow-400"
+          className="inline-block bg-yellow-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-300"
         >
-          View Project
+          View Live Project
         </a>
       </div>
     ))}
@@ -182,7 +186,7 @@ function App() {
         </div>
       </section>
 
-      <section id="contact" className="py-16 px-8 bg-gray-900 text-white text-center rounded-lg shadow-lg">
+      {/* <section id="contact" className="py-16 px-8 bg-gray-900 text-white text-center rounded-lg shadow-lg">
         <h2 className="text-4xl font-extrabold text-yellow-500 mb-8">Get In Touch</h2>
         <div className="flex flex-col md:flex-row justify-center items-start gap-16">
           <div className="w-full md:max-w-xs text-left space-y-4">
@@ -193,6 +197,26 @@ function App() {
             <p>🐙 GitHub: <a href="https://github.com/Shivani-Gour111" className="text-yellow-300 underline" target="_blank" rel="noopener noreferrer">Shivani-Gour111</a></p>
             <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/shivani--gour" className="text-yellow-300 underline" target="_blank" rel="noopener noreferrer">Shivani--Gour</a></p>
           </div>
+  
+    
+        <form action="https://api.web3forms.com/submit" method="POST">
+
+    <input type="hidden" name="access_key" value="4db704f3-3e28-46de-9166-a2edd7e88522">
+
+    
+    <input type="text" name="name" required>
+    <input type="email" name="email" required>
+    <textarea name="message" required></textarea>
+
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+
+     <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> 
+
+    <button type="submit">Submit Form</button>
+
+</form>
+
           <div className="w-full md:max-w-lg bg-gray-50 p-8 rounded-2xl shadow-2xl">
             <h3 className="text-2xl font-bold text-yellow-500 mb-4">Send a Message</h3>
             <form action="your-backend-endpoint" method="POST" className="space-y-4">
@@ -203,7 +227,121 @@ function App() {
             </form>
           </div>
         </div>
-      </section>
+      </section> */}
+ <section id="contact" className="py-16 px-8 bg-gray-900 text-white text-center rounded-lg shadow-lg">
+  <h2 className="text-4xl font-extrabold text-yellow-500 mb-8">Get In Touch</h2>
+
+  <div className="flex flex-col md:flex-row justify-center items-start gap-16">
+    {/* Left */}
+    <div className="w-full md:max-w-xs text-left space-y-4">
+      <p className="mt-4 text-xl font-light">
+        I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and development.
+      </p>
+      <p>📧 Email: <a href="mailto:gourshivani2004@gmail.com" className="text-yellow-300 underline">gourshivani2004@gmail.com</a></p>
+      <p>🐙 GitHub: <a href="https://github.com/Shivani-Gour111" className="text-yellow-300 underline" target="_blank" rel="noopener noreferrer">Shivani-Gour111</a></p>
+      <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/shivani--gour" className="text-yellow-300 underline" target="_blank" rel="noopener noreferrer">Shivani--Gour</a></p>
+    </div>
+
+  
+   {/* <form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  className="w-full md:max-w-lg bg-gray-50 p-8 rounded-2xl shadow-2xl space-y-4 text-left"
+>
+ 
+  <input type="hidden" name="access_key" value="4db704f3-3e28-46de-9166-a2edd7e88522" />
+
+  <input type="hidden" name="subject" value="New message from Shivani's portfolio" />
+  <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+
+ 
+  <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
+
+  <input type="hidden" name="redirect" value="https://shivani-portfolio.vercel.app/thanks.html" />
+
+  <input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    required
+    className="w-full p-3 rounded-md bg-white text-black text-lg"
+  />
+  <input
+    type="email"
+    name="email"
+    placeholder="Your Email"
+    required
+    className="w-full p-3 rounded-md bg-white text-black text-lg"
+  />
+  <textarea
+    name="message"
+    placeholder="Your Message"
+    required
+    rows="4"
+    className="w-full p-3 rounded-md bg-white text-black text-lg"
+  ></textarea>
+
+  <button
+    type="submit"
+    className="w-full py-3 bg-yellow-500 text-black rounded-md hover:bg-yellow-400 transition text-lg font-bold"
+  >
+    Send Message
+  </button>
+</form> */}
+
+<div className="h-[vh] flex items-center justify-center bg-gray-100">
+      {!submitted ? (
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          onSubmit={() => setSubmitted(true)}
+          className="w-full md:max-w-lg bg-gray-50 p-8 rounded-2xl shadow-2xl space-y-4 text-left"
+        >
+          <input type="hidden" name="access_key" value="4db704f3-3e28-46de-9166-a2edd7e88522" />
+          <input type="hidden" name="subject" value="New message from Shivani's portfolio" />
+          <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+          <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            className="w-full p-3 rounded-md bg-white text-black text-lg"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            className="w-full p-3 rounded-md bg-white text-black text-lg"
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+            rows="4"
+            className="w-full p-3 rounded-md bg-white text-black text-lg"
+          ></textarea>
+
+          <button
+            type="submit"
+            className="w-full py-3 bg-yellow-500 text-black rounded-md hover:bg-yellow-400 transition text-lg font-bold"
+          >
+            Send Message
+          </button>
+        </form>
+      ) : (
+        <div className="text-center bg-white p-10 rounded-2xl shadow-xl">
+          <h1 className="text-3xl font-bold text-green-600 mb-4">✅ Thank You!</h1>
+          <p className="text-lg text-gray-700">Your message has been sent successfully.</p>
+        </div>
+      )}
+    </div>
+
+  </div>
+</section>
 
 
     </div>
